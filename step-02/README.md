@@ -20,7 +20,7 @@ The view component is constructed by Angular from this template:
 </body
 ```
 
-`app/beerList.html`:
+`app/beerlist/beerList.html`:
 
 ```html
 <ul>
@@ -46,7 +46,7 @@ We have added a template file near the app.module
 
 The data model (a simple array of beers in object literal notation) is now instantiated within the `BeerList` component.
 
-`beerList.component.ts`:
+`app/beerlist/beerList.component.ts`:
 
 ```typescript
 import {Component} from 'angular2/core';

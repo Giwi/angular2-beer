@@ -1,8 +1,10 @@
 import {Component} from 'angular2/core';
+import {FilterArrayPipe} from '../pipes/filter-array-pipe';
 
 @Component({
     selector: 'beer-list',
-    templateUrl: './app/beerList.html'
+    templateUrl: './app/beerlist/beerList.html',
+    pipes: [FilterArrayPipe]
 })
 
 export class BeerList {
