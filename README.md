@@ -1,6 +1,6 @@
 # AngularBeers - AngularJS tutorial #
 
-We teach web-development in an Engineering School with a rather restrictive network. In order to explain AngularJS 2 to our students, we needed a tutorial that could be played without network acces. 
+We teach web-development in an Engineering School with a rather restrictive network. In order to explain AngularJS 2 to our students, we needed a tutorial that could be played without network acces.
 
 So we decided to build an alternative version of the tutorial that could be done even behind a very restrictive proxy. And then we thought about the subject, what would our tutorial speak about? The official one was about Android phones, and it's great, but we wanted to make us more personal... so we chose doing it about beer.
 
@@ -30,7 +30,7 @@ You can go through the whole tutorial in a couple of hours or you may want to sp
 
 ## What do I need to use this tutorial ##
 
-Besides a web browser and a text-editor (we suggest the excellent [Sublime Text](http://www.sublimetext.com/)), you will only need a web-server to test your code.
+Besides a web browser and a text-editor (we suggest the excellent [Atom](https://atom.io/)), you will only need a web-server to test your code.
 
 If you have [NodeJS](http://nodejs.org) in your system, we have put a minimalist JavaScript web-server on `./scripts/web-server.js`. To see the app running in a browser, open a separate terminal/command line tab or window, go to the project directory and then run `node ./scripts/web-server.js` to start the web server. Now, open a browser window for the app and navigate to http://localhost:8000/app/index.html to see the current state of the app.
 
@@ -53,4 +53,4 @@ As the computer used for the course haven't Git, we have structurated the projec
 1. [Custom Elements](./step-13)
 
 
-In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories. 
+In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories.
