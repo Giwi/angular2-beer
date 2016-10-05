@@ -18,7 +18,7 @@ As you can see, the app directory have several sub-directories:
 
 What must I do?
 
-Add the beer information to the app/index.html file:
+Add the beer information to the `index.html` file:
 
     <ul>
       <li>
@@ -39,6 +39,6 @@ Add the beer information to the app/index.html file:
 
 Additional experiments
 
-Try adding more static HTML to app/index.html. For example:
+Try adding more static HTML to `index.html`. For example:
 
     <p>Total number of beers: 2</p>
