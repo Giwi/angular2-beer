@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Angular 2 :: Beer Gallery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
+          integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.9/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.9/http.dev.js"></script>
+    <script>
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: {emitDecoratorMetadata: true},
+            packages: {'app': {defaultExtension: 'ts'}}
+        });
+        System.import('app/main').then(null, console.error.bind(console));
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
+            integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<ul>
+    <li>
+        <span>Affligem Blond</span>
+        <p>Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol. Low on
+            bitterness, it is eminently drinkable.</p>
+    </li>
+    <li>
+        <span>Affligem Tripel</span>
+        <p>The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a
+            complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle.</p>
+    </li>
+</ul>
+
+</body>
+</html>
