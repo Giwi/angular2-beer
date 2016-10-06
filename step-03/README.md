@@ -13,13 +13,13 @@ Let's create a pipe :
 `app/pipes/filter-array-pipe.ts`
 
 ```typescript
-import {Pipe} from 'angular2/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 // # Filter Array of Objects
 @Pipe({ name: 'filter' })
-export class FilterArrayPipe {
+export class FilterArrayPipe implements PipeTransform {
     transform(value, args) {
-        if (!args[0]) {
+        if (!args || !args[0]) {
             return value;
         } else if (value) {
             return value.filter(item => {
@@ -37,10 +37,10 @@ export class FilterArrayPipe {
 
 ## Controller ##
 
-```typescript
 Import the pipe in `app/beerlist/beerList.component.ts`:
 
-import {Component} from 'angular2/core';
+```typescript
+import {Component} from '@angular/core';
 import {FilterArrayPipe} from '../pipes/filter-array-pipe';
 
 @Component({
@@ -50,7 +50,25 @@ import {FilterArrayPipe} from '../pipes/filter-array-pipe';
 })
 
 export class BeerList {
-[...]
+
+    beers = [
+        {
+            "alcohol": 8.5,
+            "name": "Affligem Tripel",
+            "description": "The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle."
+        },
+        {
+            "alcohol": 9.2,
+            "name": "Rochefort 8",
+            "description": "A dry but rich flavoured beer with complex fruity and spicy flavours."
+        },
+        {
+            "alcohol": 7,
+            "name": "Chimay Rouge",
+            "description": "This Trappist beer possesses a beautiful coppery colour that makes it particularly attractive. Topped with a creamy head, it gives off a slight fruity apricot smell from the fermentation. The aroma felt in the mouth is a balance confirming the fruit nuances revealed to the sense of smell. This traditional Belgian beer is best savoured at cellar temperature "
+        }
+    ];
+}
 ```
 
 
@@ -62,26 +80,53 @@ We need to add a standard HTML `<input>` tag and an Angular's [pipe](https://ang
 
 This lets a user enter search criteria and immediately see the effects of their search on the beer list.
 
+In order to use a model on our input, we need to do some imports : 
+
+`app/app.module.ts` :
+
+```typescript
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
+import {BeerList} from "./beerlist/beerList.component";
+import {FilterArrayPipe} from "./pipes/filter-array-pipe";
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
+    declarations: [
+        BeerList,
+        FilterArrayPipe
+    ],
+    bootstrap: [BeerList]
+})
+export class AppModule {
+}
+```
+
+
 `app/beerlist/beerList.html`:
 
 ```html
- <div class="container">
-     <div class="row">
-         <div class="col-md-2">
-             <!--Sidebar content-->
-             Search: <input [(ngModel)]="query">
-         </div>
-         <div class="col-md-10">
-             <!--Body content-->
-             <ul>
-                 <li *ngFor="#beer of beers | filter:query">
-                     <span>{{beer.name}}</span>
-                     <p>{{beer.description}}</p>
-                 </li>
-             </ul>
-         </div>
+<div class="container">
+ <div class="row">
+     <div class="col-md-4">
+         <!--Sidebar content-->
+         Search: <input [(ngModel)]="query">
+     </div>
+     <div class="col-md-8">
+         <!--Body content-->
+         <ul>
+             <li *ngFor="let beer of (beers | filter:query)">
+                 <span>{{beer.name}}</span>
+                 <p>{{beer.description}}</p>
+             </li>
+         </ul>
      </div>
  </div>
+</div>
 ```
 
 

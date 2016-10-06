@@ -24,7 +24,7 @@ The view component is constructed by Angular from this template:
 
 ```html
 <ul>
-    <li *ngFor="#beer of beers">
+    <li *ngFor="let beer of beers">
         <span>{{beer.name}}</span>
         <p>{{beer.description}}</p>
     </li>
@@ -33,7 +33,7 @@ The view component is constructed by Angular from this template:
 
 In the template we replaced the hard-coded beer list with the [NgFor directive](https://angular.io/docs/ts/latest/api/common/index/NgFor-directive.html) :
 
-* The `*ngFor="#beer of beers"` attribute in the `<li>` tag is an Angular repeater directive. The repeater tells Angular to create a `<li>` element for each beer in the list using the `<li>` tag as the template.
+* The `*ngFor="let beer of beers"` attribute in the `<li>` tag is an Angular repeater directive. The repeater tells Angular to create a `<li>` element for each beer in the list using the `<li>` tag as the template.
 
 * The expressions wrapped in curly braces (`{{beer.name}}` and `{{beer.description}}`) will be evaluated and replaced by the value of the expressions.
 
@@ -49,11 +49,11 @@ The data model (a simple array of beers in object literal notation) is now insta
 `app/beerlist/beerList.component.ts`:
 
 ```typescript
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'beer-list',
-    templateUrl: './app/beerList.html'
+    templateUrl: './app/beerlist/beerList.html'
 })
 
 export class BeerList {
@@ -75,6 +75,36 @@ export class BeerList {
             "description": "This Trappist beer possesses a beautiful coppery colour that makes it particularly attractive. Topped with a creamy head, it gives off a slight fruity apricot smell from the fermentation. The aroma felt in the mouth is a balance confirming the fruit nuances revealed to the sense of smell. This traditional Belgian beer is best savoured at cellar temperature "
         }
     ];
+}
+```
+
+## Main module 
+
+Our application is loaded by a main module : 
+
+`app/main.ts`:
+
+```typescript
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
+
+
+`app/app.module.ts`:
+
+```typescript
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {BeerList} from "./beerlist/beerList.component";
+
+@NgModule({
+    imports: [BrowserModule],
+    declarations: [BeerList],
+    bootstrap: [BeerList]
+})
+export class AppModule {
 }
 ```
 
@@ -111,7 +141,7 @@ Create a repeater in `beerList.html` that constructs a simple table:
 ```html
 <table>
   <tr><th>row number</th></tr>
-  <tr *ngFor="#i of [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i}}</td></tr>
+  <tr *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i}}</td></tr>
 </table>
 ```
 
@@ -120,7 +150,7 @@ Now, make the list 1-based by incrementing i by one in the binding:
 ```html
 <table>
   <tr><th>row number</th></tr>
-  <tr *ngFor="#i of [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
+  <tr *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
 </table>
 ```
 

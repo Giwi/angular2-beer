@@ -6,27 +6,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
           integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
+    <!-- Polyfill(s) for older browsers -->
+    <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
     <!-- 1. Load libraries -->
-    <!-- IE required polyfills, in this exact order -->
-    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.16/system-polyfills.js"></script-->
+    <script src="https://unpkg.com/zone.js@0.6.25?main=browser"></script>
+    <script src="https://unpkg.com/reflect-metadata@0.1.3"></script>
+    <script src="https://unpkg.com/systemjs@0.19.27/dist/system.src.js"></script>
 
-    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2-polyfills.js"></script>
-    <script src="https://code.angularjs.org/tools/system.js"></script>
-    <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.9/Rx.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.9/angular2.dev.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.9/http.dev.js"></script>
-
-    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
     <script>
-        System.config({
-            transpiler: 'typescript',
-            typescriptOptions: {emitDecoratorMetadata: true},
-            packages: {'app': {defaultExtension: 'ts'}}
-        });
         System.import('app/main').then(null, console.error.bind(console));
     </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

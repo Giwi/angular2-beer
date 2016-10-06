@@ -1,4 +1,4 @@
-import {bootstrap} from 'angular2/platform/browser';
-import {BeerList} from './beerlist/beerList.component';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
 
-bootstrap(BeerList,[]);
+platformBrowserDynamic().bootstrapModule(AppModule);
