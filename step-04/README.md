@@ -79,7 +79,7 @@ Let's add a selectbox for `orderProp` and add a pipe `orderby`
                  </select>
              </div>
          </div>
- 
+
          <div class="col-md-8">
              <!--Body content-->
              <ul>
@@ -152,6 +152,14 @@ This is a good time to talk about two-way data-binding. Notice that when the app
 In the `beerList.component` controller, remove the statement that sets the `orderProp` value and you'll see that Angular will temporarily add a new "unknown" option to the drop-down list and the ordering will default to unordered/natural order.
 
 Add an `{{orderProp}}` binding into the `beerList.html` template to display its current value as text.
+
+Let's experiment with some of the [built-in Angular pipes](https://angular.io/docs/ts/latest/guide/pipes.html) and add the following bindings to `beerList.html`:
+
+```html
+{{ "lower cap string" | uppercase }}
+{{ {foo: "bar", baz: 23} | json }}
+{{ 1304375948024 | date }}
+{{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}
 
 ## Summary ##
 
