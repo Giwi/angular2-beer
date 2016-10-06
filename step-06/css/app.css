@@ -1,15 +1,9 @@
 /* app css stylesheet */
 
-body {
+div.main {
     padding-top: 20px;
 }
 
 .thumb img {
    margin: 10px;
-}
-.search-box {
-    padding: 20px;
-}
-.search-box input {
-    border-radius: 5px;
 }

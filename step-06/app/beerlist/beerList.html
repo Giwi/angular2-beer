@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col-md-4">
             <nav class="navbar navbar-dark bg-inverse">
-                <h2 class="text-xs-center text-info">Angular Beers</h2>
                 <div class="form-group">
                     <label for="search">Search :</label>
                     <input [(ngModel)]="query" type="text" class="form-control" id="search">
@@ -27,7 +26,7 @@
                         <a href="#/beers/{{beer.id}}"><h4 class="card-title">{{beer.name}} <span
                                 class="tag tag-default">{{beer.alcohol}} °</span>
                         </h4></a>
-                        <p class="card-text">{{beer.description}}</p>
+                        <p class="card-text text-justify">{{beer.description}}</p>
                         <a href="#/beers/{{beer.id}}" class="btn btn-primary">Detail</a>
                     </div>
                 </div>
