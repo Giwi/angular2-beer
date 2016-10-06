@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                Search: <input [(ngModel)]="query">
+            </div>
+            <div>
+                Sort by:
+                <select [(ngModel)]="orderProp">
+                    <option value="name">Alphabetical</option>
+                    <option value="alcohol">Alcohol content</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card" *ngFor="let beer of (beers | filter:query | orderby:orderProp)">
+                <div class="row">
+                    <a href="#/beers/{{beer.id}}" class="col-sm-4 thumb">
+                        <img class="img-thumbnail" [src]="beer.img" alt="Beer image"/>
+                    </a>
+                    <div class="col-sm-8 card-block">
+                        <a href="#/beers/{{beer.id}}"><h4 class="card-title">{{beer.name}} <span
+                                class="tag tag-default">{{beer.alcohol}} °</span>
+                        </h4></a>
+                        <p class="card-text">{{beer.description}}</p>
+                        <a href="#/beers/{{beer.id}}" class="btn btn-primary">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
