@@ -47,9 +47,6 @@ As the computer used for the course haven't Git, we have structurated the projec
 1. [Routing & Multiple Views](./step-07/)
 1. [More Templating](./step-08/)
 1. [Event Handlers](./step-09)
-1. [REST and Custom Services](./step-11)
-1. [Applying Animations](./step-12)
-1. [Custom Elements](./step-13)
-
+1. [Applying Animations](./step-10)
 
 In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories.
