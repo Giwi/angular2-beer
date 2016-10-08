@@ -26,8 +26,8 @@ This file is available from the server at the URL http://127.0.0.1:8000/beers/be
 
 ## Controller ##
 
-We'll use Angular's [HttpModule](https://angular.io/docs/ts/latest/guide/server-communication.html) service in our controller to make an HTTP request to your web server to fetch the data in the `beers/beers.json` file. 
-`HttpModule` is just one of several built-in modules that handle common operations in web apps. 
+We'll use Angular's [HttpModule](https://angular.io/docs/ts/latest/guide/server-communication.html) service in our controller to make an HTTP request to your web server to fetch the data in the `beers/beers.json` file.
+`HttpModule` is just one of several built-in modules that handle common operations in web apps.
 Angular injects these services for you where you need them.
 
 Dependency injection helps to make your web apps both well-structured (e.g., separate components for presentation, data, and control) and loosely coupled (dependencies between components are not resolved by the components themselves, but by the DI subsystem).
@@ -67,7 +67,7 @@ export class AppModule {
 }
 ```
 
-`app/beers.service.ts` : 
+`app/beers.service.ts` :
 
 ```typescript
 import {Injectable} from "@angular/core";
@@ -103,9 +103,9 @@ export class BeerService {
     }
 }
 ```
- 
-`app/beerlist/beerList.component.ts` : 
- 
+
+`app/beerlist/beerList.component.ts` :
+
 ```typescript
 import {Component} from '@angular/core';
 import {FilterArrayPipe} from '../pipes/filter-array-pipe';
@@ -145,7 +145,7 @@ Angular's dependency injector provides services to your controller when the cont
 
 At the bottom of `app/beerlist/beerList.html`, add a `<pre>{{beers | json}}</pre>` binding to see the list of beers displayed in json format.
 
-At the top of `app/beerlist/beerList.html`, add a 
+At the top of `app/beerlist/beerList.html`, add a
 
 ```html
 <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
@@ -155,7 +155,7 @@ At the top of `app/beerlist/beerList.html`, add a
 
 to display an error message, you can test if by modifying the `beerUrl` in `app/beers.service.ts`.
 
-In the BeerList component, pre-process the http response by limiting the number of beers to the first 5 in the list. 
+In the BeerList component, pre-process the http response by limiting the number of beers to the first 5 in the list.
 Use the following code in the `getBeers` callback:
 
 ```typescript
@@ -169,4 +169,4 @@ getBeers() {
 
 ## Summary ##
 
-Now that you have learned how easy it is to use Angular services (thanks to Angular's dependency injection), go to [step 6](../step-06), where you will add some thumbnail images of beers and some links.
+Now that you have learned how easy it is to use Angular services (thanks to Angular's dependency injection), go to [step 7](../step-07), where you will add some thumbnail images of beers and some links.
