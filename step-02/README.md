@@ -12,14 +12,6 @@ In Angular, the **view** is a projection of the model through the HTML **templat
 
 The view component is constructed by Angular from this template:
 
-`index.html`:
-
-```html
-<body>
-    <beer-list>Loading...</beer-list>
-</body
-```
-
 `app/beerlist/beerList.html`:
 
 ```html
@@ -31,16 +23,14 @@ The view component is constructed by Angular from this template:
 </ul>
 ```
 
+
 In the template we replaced the hard-coded beer list with the [NgFor directive](https://angular.io/docs/ts/latest/api/common/index/NgFor-directive.html) :
 
 * The `*ngFor="let beer of beers"` attribute in the `<li>` tag is an Angular repeater directive. The repeater tells Angular to create a `<li>` element for each beer in the list using the `<li>` tag as the template.
 
 * The expressions wrapped in curly braces (`{{beer.name}}` and `{{beer.description}}`) will be evaluated and replaced by the value of the expressions.
 
-We have added a template file near the app.module
-
-    The Angular expressions in curly braces (`{{beer.name}}` and `{{beer.description}}`) denote bindings, which are referring to our application model, which is set up in our `beerList.component` component.
-
+The Angular expressions in curly braces (`{{beer.name}}` and `{{beer.description}}`) denote bindings, which are referring to our application model, which is set up in our `beerList.component` component.
 
 ## Model and Controller #
 
@@ -78,9 +68,9 @@ export class BeerList {
 }
 ```
 
-## Main module 
+## Main module
 
-Our application is loaded by a main module : 
+Our application is loaded by a main module :
 
 `app/main.ts`:
 
@@ -109,6 +99,16 @@ export class AppModule {
 ```
 
 Here we declared a component called `BeerList` and registered it in an AngularJS module, `Main`.
+
+Now we can insert our component inside our main page :
+
+`index.html`:
+
+```html
+<body>
+    <beer-list>Loading...</beer-list>
+</body
+```
 
 Notice that our `<beer-list>` component (within the `<body>` tag) now specifies the `BeerList` component name.
 
