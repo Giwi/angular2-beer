@@ -144,10 +144,11 @@ export class BeerDetail implements OnInit {
 }
 ```
 
-Again, note that we created a module called `AppModule` in `app/app.module.ts`. For small AngularJS applications, it's common to create just one module for all of your components if there are just a few. As your application grows it is quite common to refactor your code into additional modules. For larger apps, you will probably want to create separate modules for each major feature of your app.
+Again, note that we created a module called `AppModule` in `app/app.module.ts`. For small AngularJS applications, it's common to create just one module for all of your components if the
+re are just a few. As your application grows it is quite common to refactor your code into additional modules. For larger apps, you will probably want to create separate modules for each major feature of your app.
 
 Because our example app is relatively small, we'll just add all of our components to the `AppModule` module.
 
 ## Summary ##
 
-With the routing set up and the beer list view implemented, we're ready to go to [step 8](../step-08/) to implement the beer details view.
+With the routing set up and the beer list view implemented, we're ready to go to [step 9](../step-09/) to implement the beer details view.
