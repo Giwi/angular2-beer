@@ -81,4 +81,4 @@ Note where we use the Angular `{{expression}}` markup to project beer data from 
 
 ## Summary ##
 
-Now that the phone details view is in place, proceed to [step 9](../step-09) to learn how to write your own custom display filter.
+Now that the phone details view is in place, proceed to [step 10](../step-10) to learn how to write your own custom display filter.
