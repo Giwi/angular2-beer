@@ -90,4 +90,4 @@ You can use it for the `beer` object.
 
 ## Summary ##
 
-With the beer image swapper in place, we're ready for [step 10](../step-10) to learn an even better way to fetch data.
+With the beer image swapper in place, we're ready for [step 11](../step-11) to learn an even better way to fetch data.
