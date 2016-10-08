@@ -58,4 +58,4 @@ The issue here is that the browser will fire a request for that invalid image ad
 
 ## Summary ##
 
-Now that you have added beer images and links, go to [step 7](../step-07) to learn about Angular layout templates and how Angular makes it easy to create applications that have multiple views.
+Now that you have added beer images and links, go to [step 8](../step-08) to learn about Angular layout templates and how Angular makes it easy to create applications that have multiple views.
