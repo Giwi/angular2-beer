@@ -103,7 +103,56 @@ Here's what needs to be changed in the file:
 
 ## Experiments ##
 
-More fun, add a fly effect to the main
+More fun, add a fly effect when we enter the detail page :
+
+```html
+[...]
+<img [src]="mainImg" [@flyInOut]="'in'" class="beer">
+[...]
+```
+
+```typescript
+trigger('flyInOut', [
+    state('in', style({transform: 'translateX(0)'})),
+    transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+    ])
+])
+```
+
+
+And why not when we navigate ?
+
+On each component declared in the Router (ie : in `app/beerlist/beerList.component.ts`):
+
+```typescript
+import {Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
+[...]
+@Component({
+    selector: 'beer-list',
+    templateUrl: './app/beerlist/beerList.html',
+    pipes: [FilterArrayPipe, OrderByPipe],
+    host: {
+        '[@routeAnimation]': 'true',
+        '[style.display]': "'block'",
+        '[style.position]': "'absolute'"
+    },
+    animations: [
+        trigger('routeAnimation', [
+            state('*', style({transform: 'translateX(0)', opacity: 1})),
+            transition('void => *', [
+                style({transform: 'translateX(-100%)', opacity: 0}),
+                animate(1000)
+            ]),
+            transition('* => void', animate(1000, style({transform: 'translateX(100%)', opacity: 0})))
+        ]),
+    ],
+    providers: [BeerService]
+})
+[...]
+```
+
 
 ##Summary ##
 
