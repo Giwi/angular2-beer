@@ -63,3 +63,56 @@ And now we can use it in the `beerList.html` template :
 </div>
 [...]
 ```
+
+## Experiments ##
+
+Typescript is a typed language, you can declare a beer class :
+
+`app/beer.ts` :
+
+```typescript
+export class Beer {
+  id: string;
+  alcohol: number;
+  availability: string;
+  brewery: string;
+  description: string;
+  img: string;
+  label: string;
+  name: string;
+  serving: string;
+  style: string;
+}
+```
+
+import it where you need and now you can use it :
+
+`app/beerexerp/beerExerp.component.ts` :
+
+```typescript
+import {Component, Input} from '@angular/core';
+import {Beer} from '../beer';
+@Component({
+    selector: 'beer-exerp',
+    templateUrl: './app/beerexerp/beerExerp.html'
+})
+export class BeerExerp implements OnInit {
+    @Input()
+    beer: Beer;
+}
+```
+
+`beers.service.ts` :
+
+```typescript
+private extractData(res: Response) {
+    let body = res.json() as Beer[];
+    return body || [];
+}
+```
+
+and so on ...
+
+## Summary ##
+
+We have modularized, componnentized and typed our app, now we can have some fun.
