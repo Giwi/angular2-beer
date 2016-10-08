@@ -7,3 +7,7 @@ div.main {
 .thumb img {
    margin: 10px;
 }
+
+img.thumb {
+    max-height: 150px;
+}

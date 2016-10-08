@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FilterArrayPipe} from '../pipes/filter-array-pipe';
 import {OrderByPipe} from '../pipes/orderby-pipe';
-import { BeerService } from '../beers.service';
+import {BeerService} from '../beers.service';
 
 @Component({
     selector: 'beer-list',
@@ -15,15 +15,18 @@ export class BeerList {
     beers = [];
     mode = 'Promise';
 
-    constructor (private beerService: BeerService) {}
+    constructor(private beerService: BeerService) {
+    }
 
-    ngOnInit() { this.getBeers(); }
+    ngOnInit() {
+        this.getBeers();
+    }
 
     getBeers() {
         this.beerService.getBeers()
             .then(
                 beers => this.beers = beers,
-                error =>  this.errorMessage = <any>error);
+                error => this.errorMessage = <any>error);
     }
 
 }

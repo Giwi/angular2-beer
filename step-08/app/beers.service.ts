@@ -17,6 +17,13 @@ export class BeerService {
             .catch(this.handleError);
     }
 
+    getBeer(beerId: String): Promise<any[]> {
+        return this.http.get('beers/' + beerId + '.json')
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body || [];

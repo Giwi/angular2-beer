@@ -1,84 +1,93 @@
-# AngularBeer - AngularJS tutorial - Step 08 #
+# AngularBeer - AngularJS tutorial - Step 09 #
 
-In this step, you will implement the beer details view, which is displayed when a user clicks on a beer in the beer list.
+In this step, you will add a clickable beer image swapper to the beer details page.
 
-When you click on a beer on the list, the beer details page with beer-specific information is displayed.
-
-To implement the beer details view we used [HttpModule](https://angular.io/docs/ts/latest/guide/server-communication.html)  to fetch our data, and we fleshed out the `beerDetail.html` view template.
-
-## Data ##
-
-In addition to `beers.json`, the `app/beers/` directory also contains one JSON file for each beer:
-
-`app/beers/TrappistesRochefort8.json`: (sample)
-
-```json
-{
-  "alcohol": 9.2,
-  "availability": "Year round",
-  "brewery": "Rochefort Brewery (Brasserie de Rochefort)",
-  "description": "A dry but rich flavoured beer with complex fruity and spicy flavours.",
-  "id": "TrappistesRochefort8",
-  "img": "beers/img/TrappistesRochefort8.jpg",
-  "label": "beers/img/TrappistesRochefort8-label.png",
-  "name": "Rochefort 8",
-  "serving": "Serve in a Snifter",
-  "style": "Trappiste"
-}
-```
-
-Each of these files describes various properties of the beer using the same data structure. We'll show this data in the beer detail view.
+The beer details view displays one large image of the current beer and several smaller thumbnail images. It would be great if we could replace the large image with any of the thumbnails just by clicking on the desired thumbnail image. Let's have a look at how we can do this with Angular.
 
 ## Controller ##
 
-We'll enhance the BeerService by using the `HttpModule` service to fetch the JSON files. This works the same way as the beer list controller.
+In the BeerDetail controller, we created the `mainImg` model property and set its default value to the beer's bottle image URL.
 
-`app/beers.service.ts`:
+We also created a `setImage` event handler function that will change the value of `mainImg`
+
+`app/beerdetail/beerDetail.component.ts`:
 
 ```typescript
-  getBeer(beerId: String): Promise<any[]> {
-      return this.http.get('beers/' + beerId + '.json')
-          .toPromise()
-          .then(this.extractData)
-          .catch(this.handleError);
-  }
+getBeer(beerId: String) {
+    this.beerService.getBeer(beerId)
+        .then(
+            beer => {
+                this.beer = beer;
+                this.setImage(beer.img);
+            },
+            error => this.errorMessage = <any>error
+        );
+}
+
+setImage(img: String) {
+    this.mainImg = img;
+}
 ```
 
 
 ## Template ##
 
-The TBD placeholder line has been replaced with lists and bindings that comprise the beer details.
-Note where we use the Angular `{{expression}}` markup to project beer data from our model into the view.
+We bound the `[src]` directive of the large image to the `mainImg` property.
+
+We also registered an Click handler with thumbnail images. When a user clicks on one of the thumbnail images, the handler will use the `setImage` event handler function to change the value of the `mainImg` property to the URL of the thumbnail image.
 
 `app/beerdetail/beerDetail.html`:
 
 ```html
-<div class="container">
-    <div class="row">
-        <div class="col-md-4"><img [src]="beer.img" class="beer"></div>
-        <div class="col-md-8">
-            <h1>{{beer.name}}</h1>
-            <p class="text-justify">{{beer.description}}</p>
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <img [src]="beer.img" class="img-thumbnail thumb">
-                </li>
-                <li class="list-inline-item">
-                    <img [src]="beer.label" class="img-thumbnail thumb">
-                </li>
-            </ul>
-        </div>
+<div class="row">
+    <div class="col-md-4"><img [src]="mainImg" class="beer"></div>
+    <div class="col-md-8">
+        <h1>{{beer.name}}</h1>
+        <p class="text-justify">{{beer.description}}</p>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <img [src]="beer.img" class="img-thumbnail thumb" (click)="setImage(beer.img)">
+            </li>
+            <li class="list-inline-item">
+                <img [src]="beer.label" class="img-thumbnail thumb" (click)="setImage(beer.label)">
+            </li>
+        </ul>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item"><dl><dt>Alcohol content</dt><dd>{{beer.alcohol}}</dd></dl></li>
-        <li class="list-group-item"><dl><dt>Brewery</dt><dd>{{beer.brewery}}</dd></dl></li>
-        <li class="list-group-item"><dl><dt>Availability</dt><dd>{{beer.availability}}</dd></dl></li>
-        <li class="list-group-item"><dl><dt>Style</dt><dd>{{beer.style}}</dd></dl></li>
-        <li class="list-group-item"><dl><dt>Serving instructions</dt><dd>{{beer.serving}}</dd></dl></li>
-    </ul>
 </div>
 ```
 
+## Experiments ##
+
+Let's add a back button in BeerDetail:
+
+```typescript
+[...]
+constructor(private route: ActivatedRoute,
+            private location: Location,
+            private beerService: BeerService) {
+}
+[...]
+goBack(): void {
+    this.location.back();
+}
+
+```
+
+and add:
+
+```html
+<button class="btn btn-primary" (click)="goBack()">Go Back</button>
+```
+
+to the `beerDetail.html` template.
+
+To avoid a null `mainImg` before loading the detail, you can user [*ngIf](https://angular.io/docs/ts/latest/api/common/index/NgIf-directive.html) :
+```html
+<img *ngIf="mainImg" [src]="mainImg" class="beer">
+```
+
+You can use it for the `beer` object.
+
 ## Summary ##
 
-Now that the phone details view is in place, proceed to [step 10](../step-10) to learn how to write your own custom display filter.
+With the beer image swapper in place, we're ready for [step 09](../step-09) to learn an even better way to fetch data.

@@ -40,14 +40,14 @@ As the computer used for the course haven't Git, we have structurated the projec
 
 1. [Static Template](./step-01/)
 1. [Angular Templates](./step-02/)
-1. [Components, components, components](./step-03)
-1. [Filtering Repeaters and Pipes](./step-04/)
-1. [Two-way Data Binding and Pipes](./step-05/)
-1. [XHRs & Dependency Injection](./step-06/)
-1. [Templating Links & Images](./step-07/)
-1. [Routing & Multiple Views](./step-08/)
-1. [More Templating](./step-09/)
-1. [Event Handlers](./step-11)
+1. [Filtering Repeaters and Pipes](./step-03/)
+1. [Two-way Data Binding and Pipes](./step-04/)
+1. [XHRs & Dependency Injection](./step-05/)
+1. [Templating Links & Images](./step-06/)
+1. [Routing & Multiple Views](./step-07/)
+1. [More Templating](./step-08/)
+1. [Event Handlers](./step-09)
+1. [Components, components, components](./step-10)
 1. [Applying Animations](./step-11)
 
 In each step directory you have a README file that explain the objective of the step, that you will do in the working directory `app`. If you have problems or if you get lost, you also have the solution of each step in the step directories.

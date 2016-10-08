@@ -1,6 +1,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({name: 'filter'})
+// # Filter Array of Objects
+@Pipe({ name: 'filter' })
 export class FilterArrayPipe implements PipeTransform {
     transform(value, args) {
         if (!args || !args[0]) {

@@ -17,7 +17,7 @@
     <script>
         System.import('app/main').then(null, console.error.bind(console));
     </script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -26,6 +26,20 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<beer-list>Loading...</beer-list>
+<nav class="navbar navbar-full navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">angular Beer</a>
+    <ul class="nav navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+</nav>
+<div class="main">
+    <beer-list>
+        <div class="container">Loading...
+            <progress class="progress progress-striped progress-animated" value="100" max="100"></progress>
+        </div>
+    </beer-list>
+</div>
 </body>
 </html>

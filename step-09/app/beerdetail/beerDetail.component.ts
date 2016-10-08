@@ -11,6 +11,7 @@ import {BeerService}            from '../beers.service';
 })
 export class BeerDetail implements OnInit {
     beer = {};
+    mainImg;
 
     constructor(private route: ActivatedRoute,
                 private beerService: BeerService) {
@@ -25,7 +26,15 @@ export class BeerDetail implements OnInit {
     getBeer(beerId: String) {
         this.beerService.getBeer(beerId)
             .then(
-                beer => this.beer = beer,
-                error => this.errorMessage = <any>error);
+                beer => {
+                    this.beer = beer;
+                    this.setImage(beer.img);
+                },
+                error => this.errorMessage = <any>error
+            );
+    }
+
+    setImage(img: String) {
+        this.mainImg = img;
     }
 }
