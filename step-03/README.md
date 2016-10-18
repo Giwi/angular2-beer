@@ -16,20 +16,13 @@ Let's create a pipe :
 import {Pipe, PipeTransform} from '@angular/core';
 
 // # Filter Array of Objects
-@Pipe({ name: 'filter' })
+@Pipe({name: 'filter'})
 export class FilterArrayPipe implements PipeTransform {
-    transform(value, args) {
+    transform(items, args) {
         if (!args || !args[0]) {
-            return value;
-        } else if (value) {
-            return value.filter(item => {
-                for (let key in item) {
-                    if ((typeof item[key] === 'string' || item[key] instanceof String) &&
-                        (item[key].indexOf(args[0]) !== -1)) {
-                        return true;
-                    }
-                }
-            });
+            return items;
+        } else if (items) {
+            return items.filter(item => item.name.match(new RegExp(args, 'i')));
         }
     }
 }
