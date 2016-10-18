@@ -1,4 +1,4 @@
-# AngularBeer - AngularJS tutorial - Step 03 #
+# AngularBeer - AngularJS tutorial - Step 10 #
 
 In angular, everything is a component and you have to assemble your components together.
 
