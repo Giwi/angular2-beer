@@ -4,7 +4,7 @@ In this step, you will add a feature to let your users control the order of the 
 
 In addition to the search box, the app displays a drop down menu that allows users to control the order in which the beers are listed.
 
-## Pipe ##
+## Pipe ##
 
 Let's create a pipe :
 
