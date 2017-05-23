@@ -1,11 +1,9 @@
 # AngularBeer - AngularJS tutorial - Step 07 #
 
-In this step, you will learn how to create a layout template and how to build an app that has multiple views by adding routing, using an
-Angular module called 'RouterModule'.
+In this step, you will learn how to create a layout template and how to build an app that has multiple views by adding routing, using an Angular module called "RouterModule".
 
-* When you now navigate to `app/index.html`, you are redirected to `app/index.html/#/beers̀ and the beer list appears in the browser.
-
-* When you click on a beer link the url changes to one specific to that beer and the stub of a beer detail page is displayed.
+- When you now navigate to `app/index.html`, you are redirected to `app/index.html/#/beers̀ and the beer list appears in the browser.
+- When you click on a beer link the url changes to one specific to that beer and the stub of a beer detail page is displayed.
 
 
 ## Dependencies ##
@@ -20,7 +18,7 @@ To add the detailed view, we could expand the `index.html` file to contain templ
 
 Application routes in Angular are declared via the [Routes](https://angular.io/docs/ts/latest/guide/router.html). This service makes it easy to wire together controllers, view templates, and the current URL location in the browser. Using this feature we can implement [deep linking](http://en.wikipedia.org/wiki/Deep_linking), which lets us utilize the browser's history (back and forward navigation) and bookmarks.
 
-## The router
+## The router
 
 First modify `app/index.html` by adding `<base href="./#"/>` within the `head` tag.
 
