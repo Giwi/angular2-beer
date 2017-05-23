@@ -6,7 +6,7 @@ We want to add a search box to the app, and we want the results on the beer list
 
 In Angular 1 you got `filter` and `orderBy`, thez do dot exist in angular 2 : [No FilterPipe or OrderByPipe](https://angular.io/docs/ts/latest/guide/pipes.html#!#no-filter-pipe)
 
-## Pipe ##
+## Pipe ##
 
 Let's create a pipe :
 
