@@ -160,6 +160,7 @@ Let's experiment with some of the [built-in Angular pipes](https://angular.io/do
 {{ {foo: "bar", baz: 23} | json }}
 {{ 1304375948024 | date }}
 {{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}
+```
 
 ## Summary ##
 
